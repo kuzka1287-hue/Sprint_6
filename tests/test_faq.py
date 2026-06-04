@@ -14,3 +14,4 @@ class TestFAQ:
         main_page.open()
         actual = main_page.get_faq_answer_text(q_index)
         assert actual == expected_text
+ 
