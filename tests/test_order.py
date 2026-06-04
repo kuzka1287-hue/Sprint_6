@@ -58,5 +58,5 @@ class TestOrder:
             order_data["color"], order_data["comment"]
         )
         order_page.confirm_order()
-        success_msg = order_page.get_success_message()
+        success_msg = order_page.get_success_message() 
         assert "Заказ оформлен" in success_msg
