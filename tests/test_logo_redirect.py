@@ -18,3 +18,4 @@ class TestLogoRedirect:
         main_page.click_yandex_logo()
         new_window_url = main_page.get_new_window_url()
         assert DZEN_URL_PATTERN in new_window_url
+ 
