@@ -29,5 +29,5 @@ class MainPage(BasePage):
         answer_loc = (Loc.ANSWER_PATTERN[0], Loc.ANSWER_PATTERN[1].format(index))
         return self.get_text(answer_loc)
 
-    def open(self):
-        self.driver.get(BASE_URL)
+    def open_main(self):
+        self.open(BASE_URL)
