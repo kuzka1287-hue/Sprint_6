@@ -1,0 +1,15 @@
+
+---
+
+### 8. Запуск и генерация отчёта
+
+```bash
+# установка зависимостей
+pip install -r requirements.txt
+
+# запуск всех тестов (Firefox)
+pytest tests --browser=firefox -v
+
+# с Allure
+pytest tests --alluredir=allure_results --browser=firefox
+allure serve allure_results
