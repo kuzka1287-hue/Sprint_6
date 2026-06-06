@@ -1,6 +1,7 @@
 import allure
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators as Loc
+from data.urls import ORDER_PAGE_URL
 
 class OrderPage(BasePage):
     @allure.step("Заполнить первую форму заказа (данные клиента)")
@@ -9,7 +10,7 @@ class OrderPage(BasePage):
         self.send_keys(Loc.SURNAME_INPUT, surname)
         self.send_keys(Loc.ADDRESS_INPUT, address)
         self.send_keys(Loc.METRO_INPUT, metro_station)
-        self.click(Loc.METRO_INPUT)  # выбор станции из выпадающего списка (по клику)
+        self.click(Loc.METRO_INPUT)
         self.send_keys(Loc.PHONE_INPUT, phone)
         self.click(Loc.NEXT_BUTTON)
 
@@ -34,6 +35,5 @@ class OrderPage(BasePage):
     def get_success_message(self):
         return self.get_text(Loc.SUCCESS_MESSAGE)
 
-    def open(self):
-        from data.urls import ORDER_PAGE_URL
-        self.driver.get(ORDER_PAGE_URL)
+    def open_order_page(self):
+        self.open(ORDER_PAGE_URL)
