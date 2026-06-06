@@ -7,6 +7,10 @@ class BasePage:
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
 
+    @allure.step("Открыть страницу {url}")
+    def open(self, url):
+        self.driver.get(url)
+
     @allure.step("Кликнуть на элемент {locator}")
     def click(self, locator):
         self.wait.until(EC.element_to_be_clickable(locator)).click()
@@ -35,7 +39,7 @@ class BasePage:
         self.wait.until(lambda d: len(d.window_handles) > 1)
         self.driver.switch_to.window(self.driver.window_handles[1])
 
-    @allure.step("Дождаться появления нового окна и вернуть его URL")
+    @allure.step("Получить URL новой вкладки")
     def get_new_window_url(self):
         self.switch_to_new_window()
         return self.driver.current_url
