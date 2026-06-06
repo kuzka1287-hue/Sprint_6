@@ -17,4 +17,3 @@ def driver(request):
         raise ValueError("Поддерживается только Firefox")
     yield driver
     driver.quit()
- 
